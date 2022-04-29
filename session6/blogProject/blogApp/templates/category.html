@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
 </head>
 <body>
-    <h2>글 목록</h2>
-    <ul>
-        {% for article in articles%}
-        <li>
-            <a href ="{% url 'detail' article. id%}"> {{article.title}}</a>
+    <h1 class="title">CATEGORY LIST</h1>
+    <ul class="list">
+        {% for article in articles %}
+        <li class="small_list">
+            <a class="list_contents" href ="{% url 'detail' article.id%}"> {{article.title}}</a>
         </li>
         {%endfor%}
     </ul>
 </body>
-</html>
+</html>  
+

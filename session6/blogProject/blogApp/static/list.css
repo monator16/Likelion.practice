@@ -1,0 +1,87 @@
+.button {
+    width:800px;
+    height:max-content;
+    text-decoration: none;
+    color: rgb(251, 253, 255);
+    background-color: rgba(240, 248, 255, 0.466);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10ch;
+    font-family: 'Square Peg', cursive;
+
+}
+
+.small_list {
+
+    display:flex;
+    justify-content: center;
+    color:white;
+    font-size: 8ch;
+
+}
+.list{
+    list-style: none;
+    background-color: rgba(240, 248, 255, 0.466);
+    border-radius: 5pt;
+    margin: 100pt;
+    padding:40pt;
+
+}
+
+.list_contents{
+    text-decoration: none;
+    color:white;
+
+}
+
+.title{
+   
+    display:flex;
+    justify-content: center;
+    color:rgb(210, 210, 223);
+    font-family: 'Square Peg', cursive;
+}
+
+h1{
+    font-size: 20ch;
+    border:3pt solid aliceblue;
+    border-style:dashed;
+    
+}
+    
+a.title {
+    font-size: 10ch;
+    margin: 100px;
+
+}
+
+body {
+    background-image: url("https://t3.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/5xq2/image/1ndeJ14NMBgSfv_2-tHDGCyIyLA.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menubar{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.form {
+
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_contents {
+    width: 700px;
+    height: max-content;
+    text-align: center;
+    font-size: 3ch;
+    padding:5pt;
+}

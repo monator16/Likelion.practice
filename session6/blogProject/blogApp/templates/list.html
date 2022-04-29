@@ -5,19 +5,37 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
     </head>
     <body>
-        <h2 href="{% url 'category' 'hobby'%}">hobby {{hobbycount}}</h2>
-       
 
-        <h2 href ="{% url 'category' 'food'%}">food {{foodcount}}</h2>
+        <h1 class="title">MY BLOG</h1>
+
+        <section class="menubar">
+
+            <a class="button" href="{% url 'category' 'food' %}"> food {{foodcount}}</a>
+            <a class="button" href="{% url 'category' 'hobby' %}"> hobby {{hobbycount}}</a>   
+            <a class="button" href="{% url 'category' 'programming' %}"> programming {{programmingcount}}</a> 
+
+
+        </section>
         
 
-        <h2 href ="{% url 'category' 'programming'%}">programming{{programmingcount}}</h2>
-       
+        <a class="title">ALL POSTING</a>
+        <ul class="list">
+            {% for article in ordered_articles %}
+            <li class="small_list">
+                <a class="list_contents" href ="{% url 'detail' article.id%}"> {{article.title}}</a>
+            </li>
+            {%endfor%}
+        </ul>
+
+        
+    
         
 
-        <a href="{% url 'new' %}"> 글 쓰러 가자</a>
+        <a class="title" href="{% url 'new' %}"> POSTING NEW ONE</a>
     </body>
 </html>
 

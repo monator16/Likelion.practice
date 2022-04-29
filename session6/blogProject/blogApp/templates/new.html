@@ -5,18 +5,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
+
     </head>
     <body>
-        <h2>글 쓰기 페이지</h2>
-        <form action="/new" method ="post">
+        <h1 class="title">WRITING!</h1>
+        <form class="form" action="/new" method ="post">
             {% csrf_token %}
-            <div>
-                <div>글 제목</div>
-                <input type="text" name="title" />
+            <div >
+                <h2>글 제목</h2>
+                <input  class="form_contents" type="text" name="title" />
             </div>
 
-            <div>
-                <select name ="category">
+            <div >
+                <h2>카테고리</h2>
+                <select class="form_contents" name ="category">
                     <option value="" selected>---선택---</option>
                     <option value="hobby">hobby</option>
                     <option value="food">food</option>
@@ -25,12 +29,12 @@
             </div>
 
             <div>
-                <div>글 내용</div>
-                <textarea name="content" cols="30" rows="10"></textarea>
+                <h2>글 내용</h2>
+                <textarea  class="form_contents" name="content" cols="40" rows="30"></textarea>
 
             </div>
 
-            <button type="submit">작성 완료</button>
+            <button  class="form_contents"  type="submit">작성 완료</button>
         </form>
         
     </body>
