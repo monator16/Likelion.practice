@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'result.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'result1.css' %}">  
 </head>
 <body>
+    <div class="contents">
     <p> 입력한 내용 : {{text}}</p>
-    <p> 글자수: {{total_len}}</p>
+    <p> 공백 포함 글자수: {{total_len}}</p>
     <p> 공백 제외 글자수: {{no_blank_len}}</p>
+    <p> 단어수: {{totalwords}}</p>
+    </div>
+    
 </body>
 </html>
 

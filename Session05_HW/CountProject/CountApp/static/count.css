@@ -1,0 +1,41 @@
+.sec {
+    display: flex;
+    width:1000px;
+    height:1000px;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    margin: 10pt;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url('https://www.artinsight.co.kr/data/tmp/2003/20200315094955_yumssfxd.jpg');
+    background-size: cover;
+   
+}
+
+
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-weight:bolder;
+    border: 1px solid rgba(48, 45, 83, 0.5);
+    background-color: aliceblue;
+    border-radius: 5px;
+    color:rgb(42, 33, 49);
+}
+
+textarea {
+   
+    color:rgb(79, 89, 99);
+    font-size: 30px;
+    border:solid rgb(64, 65, 124);
+   
+}
+
+

@@ -10,7 +10,8 @@ def result(request):
     text = request.POST['text']
     total_len = len(text)
     no_blank_len = len(text.replace(' ',''))
+    words = text.split()
     
     return render (request, 'result.html',{'total_len': total_len, 
     'no_blank_len' : no_blank_len,
-    'text':text})
+    'text':text, 'totalwords':len(words)})

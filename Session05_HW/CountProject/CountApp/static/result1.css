@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url('https://www.artinsight.co.kr/data/tmp/2003/20200315094955_yumssfxd.jpg');
+    background-size: cover;
+    color:rgb(32, 32, 54);
+    text-align: center;
+    font-size: 100pt;
+}
+
