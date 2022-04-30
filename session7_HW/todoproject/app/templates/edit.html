@@ -18,11 +18,11 @@
 
         <div>
             <label for="content">descriptions</label>
-            <textarea name="content" id="content" cols="30" rows="10"> {{post.content}} </textarea>
+            <textarea name="content" id="content" cols="30" rows="10"> {{ post.content }} </textarea>
         </div>
 
         <div>
-            <input type="date" name="end_date" id="end_date">
+            <input value="{{post.end_date}}"type="date" name="end_date" id="end_date">
         </div>
 
         <button type="submit">수정하기</button>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="" method="post">
-        {%csrf_token %}
+        {% csrf_token %}
         <div>
             <label for="title">title</label>
             <input type="text" name="title" id="title" placeholder="what to do">
@@ -25,8 +25,11 @@
         <div>
             <input type="date" name="end_date" id="end_date">
         </div>
-
-        <button type="submit">작성하기</button>
+       
+       
+            <button type="submit"> <a href="{% url 'home' %}">작성하기</a></button>
+        </a>
+        
     </form>
     
 </body>

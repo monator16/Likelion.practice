@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
     <title>Document</title>
 </head>
 <body>
-    <h1>TO do list</h1>
+    <h1 clas="title">TO Do list</h1>
 
-    <ul>
-        {% for post in posts %}
-        <li>{{ post.title }} {{post.d_day}}</li>
-        <% endfor %}
-    </ul>
+    <div>
+        <ul>
+            {% for post in posts %}
+            <li>
+                <a href="{% url 'detail' post.pk %}">{{ post.title }} D {{post.d_day}} </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <a href="{% url 'new' %}">add new</a>
+  
 
 </body>
 </html>
