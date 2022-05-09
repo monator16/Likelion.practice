@@ -12,15 +12,33 @@ class AddMajorView(CreateView):
     template_name = 'addMajor.html'
     success_url = reverse_lazy('home')
 
+    
+class EditMajorView(UpdateView):
+    model = Major
+    form_class= MajormodelForm
+    template_name = 'editMajor.html'
+    success_url = reverse_lazy('home')       
+
+
+def major(request):
+    majors= Major.objects.all()
+    return render(request, 'major.html', {'majors': majors})
+
+def subject(request):
+    subjects= Subject.objects.all()
+    return render(request, 'subject.html', {'subjects':subjects})
 
 def home(request):
-    majors= Major.objects.all()
-    subjects= Subject.objects.all()
-    return render(request, 'home.html', {'majors': majors, 'subjects':subjects})
+    
+    return render(request, 'home.html')
 
-def businessSubjectView(request):
-    bizsubjects = Subject.objects.filter(major__name= '경영학과')
-    return render(request,'business.html', {'bizsubjects':bizsubjects} )
+
+
+
+def businessSubjectsView(request):
+    subjects = Subject.objects.all()
+    bizmajor =subjects.filter(major__name='경영학과')
+    return render(request,'business.html',{'bizmajor':bizmajor} )
 
 class AddSubjectView(CreateView):
     model = Subject
@@ -28,15 +46,16 @@ class AddSubjectView(CreateView):
     template_name = 'addSubject.html'
     success_url = reverse_lazy('home')
 
-
-
-def delete(request,	subject_pk):
-    subject= Subject.objects.get(pk=subject_pk)
-    subject.delete()
-
+def DeleteSubjectView(request, subject_pk):
+    delSubject = Subject.objects.get(pk=subject_pk)
+    delSubject.delete()
     return redirect('home')
 
-
+def DeleteMajorView(request, major_pk):
+    delMajor = Major.objects.get(pk=major_pk)
+    delMajor.delete()
+    return redirect('home')
+    
 
 class EditSubjectView(UpdateView):
     model = Subject

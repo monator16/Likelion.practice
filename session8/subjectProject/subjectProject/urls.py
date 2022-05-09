@@ -16,15 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from subjectApp import views
-from subjectApp.views import AddMajorView,AddSubjectView,EditSubjectView
+from subjectApp.views import AddMajorView,AddSubjectView,EditSubjectView,EditMajorView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('addMajor', AddMajorView.as_view(), name="addMajor"),
+    path('editMajor/<int:pk>', EditMajorView.as_view(), name='editMajor'),
     path('addSubject',  AddSubjectView.as_view(), name="addSubject"),
-    path('business', views.businessSubjectView, name="business"),
+    path('business', views.businessSubjectsView, name="business"),
     path('editSubject/<int:pk>', EditSubjectView.as_view(), name="editSubject"),
-    path('delete/<int:pk>',views.delete, name="delete"),
-    path ('', views.home, name="home"),
+    path('deleteSubject/<int:subject_pk>',views.DeleteSubjectView, name="deleteSubject"),
+    path('deleteMajor/<int:major_pk>',views.DeleteMajorView, name="deleteMajor"),
+    path('major',views.major, name='major'),
+    path('subject',views.subject, name='subject'),
+    path ('',views.home,name="home"),
 ]
 

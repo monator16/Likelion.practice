@@ -7,19 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>경영 과목</h1>
+    <h1>Business Subjects</h1>
 
-   <ul>
-        {%for bizsubject in bizsubjects%}
-        <li>
-        {{bizsubject.subject_name}} | {{bizsubject.major}} | {{bizsubject.prof_name}} | <span href="{% 'editSubject' subject.pk %}">수정</span> |
-        <span href="{% url 'delete' subject.pk %}"> 삭제 </span>
-    
-        <br>
-        {{bizsubject.memo}}
-       </li>
-       {% endfor %}
-   </ul>
+    <ol>
+        {%for subject in bizmajor%}
+        <div class="list">
+           
+            <li>
+                <div>
+                    <span>{{subject.subject_name}} </span>
+                    <span>| {{subject.major}} |</span> 
+                    <span>{{subject.prof_name}} |</span>
+                     
+                    <a href="{% url 'editSubject' subject.pk %}" class="button">수정</a> 
+                    <a href="{% url 'deleteSubject' subject.pk %}" class="button"> 삭제 </a>
+                    <br>
+                    {{subject.memo}}
+
+                </div>
+                
+            </li>
+             
+           
+
+        </div>
+
+        {% endfor %}
+
+    </ol>
+
+  
 </body>
 </html>
 

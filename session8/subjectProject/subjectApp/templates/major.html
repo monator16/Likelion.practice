@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'major.css' %}">
+</head>
+<body>
+    <h1>Major</h1>
+
+    <div class="boxes">
+        {%for major in majors%}
+
+        <div class="major_box">
+            <a href="{% url 'business' %}""> {{major.name}}</a>
+            <div class="edit_bar">
+                <a href="{% url 'editMajor' major.pk %}" class="button">수정</a> 
+                <a href="{% url 'deleteMajor' major.pk %}" class="button"> 삭제 </a>
+            </div>
+
+        </div>
+        {% endfor %}
+    
+       
+
+    </div>
+
+    <h1><a href ="{% url 'addMajor'%}"> 전공 추가 </a></h1>
+
+    
+
+    
+</body>
+</html>

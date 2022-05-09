@@ -5,34 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
 </head>
 <body>
-    <h1>모든 전공 </h1>
 
-   <a href ="{% url 'addMajor'%}"> 전공 추가 </a> 
-   <ul>
-        {%for major in majors%}
-        <li>
-        {{major.name}}
-       </li>
-       {% endfor %}
-   </ul>
+    <h1 class="title">KOREA UNIVERSITY</h1>
+
+    <div>
+        <span> <a href ="{% url 'major'%}">All Majors</a> </span>
+        <div class="v-line">
+        </div>
+        <span><a href ="{% url 'subject'%}">All Subjects </a></span>
+    </div>
+
+    <h1 class="title">SHARE YOUR INFORMATION!</h1>
    
-
-   <h1>모든 과목</h1>
-
-   <a href ="{% url 'addSubject'%}"> 과목 추가 </a> 
-   <ul>
-        {%for subject in subjects%}
-        <li>
-        {{subject.subject_name}} | {{subject.major}} | {{subject.prof_name}}
-        <br>
-        {{subject.memo}}
-       </li>
-       {% endfor %}
-   </ul>
-
-   <h1 href ="{% url 'business' %}">경영 과목</h1> 
-
 </body>
 </html>

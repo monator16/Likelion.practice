@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'subject.css' %}">
+</head>
+<body>
+    <h1>Subject</h1>
+
+    
+
+    <div class="boxes">
+        {%for subject in subjects%}
+        <div class="subject_box">
+
+            <div id="color"></div>
+            <div class="subject_info">
+                <a class="subtitle">{{subject.subject_name}}</a>
+                <a>{{subject.major}} </a>
+                <a>{{subject.prof_name}} </a>
+                <a>{{subject.memo}} </a>
+    
+             </div>
+    
+        </div>
+        {% endfor %}
+
+    </div>
+   
+    
+   
+
+
+
+   <h1><a href ="{% url 'addSubject'%}"> 과목 추가 </a></h1>
+  
+
+
+</body>
+
+
+</html>
