@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Post
+from .models import Post,Comment
 
 # Create your views here.
 
@@ -40,6 +40,21 @@ def delete(request, post_pk):
 
 def detail(request, post_pk):
     post = Post.objects.get(pk=post_pk)
-    return render(request, 'detail.html', {"post": post})
+    post.counting +=1
+    post.save()
 
+    if request.method =='POST':
+        content = request.POST['content']
+        Comment.objects.create(
+            post=post,
+            content= content
+        )
+        return redirect('detail',post_pk)
+    return render(request, 'detail.html', {"post": post,"counting":post.counting})
+
+
+def delete_comment(request,post_pk, comment_pk):
+    comment = Comment.objects.get(pk=comment_pk)
+    comment.delete()
+    return redirect('detail',post_pk)
     

@@ -1,7 +1,7 @@
 """project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -19,10 +19,10 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', views.list, name='list'),
-    path('new', views.create, name='create'),
-    path('detail/<int:post_pk>', views.detail, name='detail'),
-    path('edit/<int:post_pk>', views.edit, name='edit'),
+    path('', views.list_page, name='list_page'),
+    path('new', views.create_page, name='create_page'),
+    path('detail/<int:post_pk>', views.detail_page, name='detail_page'),
+    path('edit/<int:post_pk>', views.edit_page, name='edit_page'),
     path('delete/<int:post_pk>', views.delete, name='delete'),
-    path('delete-comment/<int:post_pk>/<int:comment_pk>',views.delete_comment, name='delete-comment'),
+    # 리스트에는 쉼표를 붙이는 습관
 ]

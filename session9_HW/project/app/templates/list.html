@@ -1,24 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+
+
+{% block title %}
     <h1>게시글</h1>
+{% endblock title%}
 
-    {% if not posts %}
+{% block nav-bar %}
+<a href="{% url 'create' %}">글 쓰러 가기</a>
+{% endblock nav-bar%}
+
+
+{% block content %}
+{% if not posts %}
     <p>게시물 없음. 게시물 쓰삼</p>
     {% endif %}
 
     {% for post in posts %}
+    <li>
     <a href ="{% url 'detail' post.pk %}"> {{post.title}} | {{post.author}} </a>
+
+    </li>
     {% endfor %}
 
-    <br>
-    <a href="{% url 'create' %}">글 쓰러 가긴</a>
-</body>
-</html>
+{% endblock content %}
+    
