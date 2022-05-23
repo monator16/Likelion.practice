@@ -18,24 +18,27 @@
     <p> 조회수 : {{ counting }}</p>
 
     <p>{{ post.title }}</p>
-    <p>{{ post.author }}</p>
     <p>{{ post.content }}</p>
 
+    {% if user.is_authenticated and post.author.pk ==user.pk %}
     <a href="{% url 'edit' post.pk %}">수정하기 </a>
     <a href="{% url 'delete' post.pk %}">삭제하기 </a>
+    {% endif %}
 
+    {% if user.is_authenticated %}
     <form method="POST">
         {% csrf_token %}
         <input type="text" name="content" placeholder="댓글 입력해라">
         <button type="submit">작성하기</button>
     </form>
-
+    {% endif %}
     {% for comment in post.comments.all %}
     <li>
         {{comment.content}}
+    {% if user.is_authenticated and comment.author.pk ==user.pk %}
         <a href="{% url 'delete-comment' post.pk comment.pk %}">삭제</a>
     </li>
-        {% endfor %}
+        {% endif %}{% endfor %}
 
 {% endblock content %}
     
